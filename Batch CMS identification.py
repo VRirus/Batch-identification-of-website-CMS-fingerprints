@@ -30,8 +30,7 @@ def results(url):
 
 if __name__ == '__main__':
     pools = []
-    urlpath = sys.argv[1]
-    readDir = r'urlpath'
+    readDir = sys.argv[1]
     f = open(readDir,"r")
     for url in f.read().split():
         try:

@@ -8,13 +8,13 @@ import requests
 import pandas as pd
 
 def whatweb(url):
-    response = requests.get(url,verify=False,timeout=1)
+    response = requests.get(url,verify=False,timeout=1) #如果本地网络环境延时较高，timeout可设置高一些，默认为1s
     whatweb_dict = {"url":response.url,"text":response.text,"headers":dict(response.headers)}
     whatweb_dict = json.dumps(whatweb_dict)
     whatweb_dict = whatweb_dict.encode()
     whatweb_dict = zlib.compress(whatweb_dict)
     data = {"info":whatweb_dict}
-    return requests.post("http://whatweb.bugscaner.com/api.go",files=data,timeout=1)
+    return requests.post("http://whatweb.bugscaner.com/api.go",files=data,timeout=1)  #如果本地网络环境延时较高，timeout可设置高一些，默认为1s
     
 def results(url):
     result = {}

@@ -9,6 +9,7 @@ python3 Batch_CMS_identification.py url.txt
 ```
 ![图片](https://uploader.shimo.im/f/AhfhHP2cOewjgXVt.png!thumbnail)
 ![图片](https://uploader.shimo.im/f/6ecJ8GXkKsoe0FGK.png!thumbnail)
+![图片](https://uploader.shimo.im/f/tWhEGNegqaknYgqJ.png!thumbnail)
 # 0x03 注意事项
 * url.txt文件中地址格式需要http开头，如[http://www.teamssix.com](http://www.teamssix.com/)
 * 如果执行过程中出现警告，一般是碰到有些网站使用的https的情况，可以不用理会，对结果没有影响。

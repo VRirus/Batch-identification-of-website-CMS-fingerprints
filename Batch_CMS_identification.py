@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-#by TeamsSix
+#by www.teamssix.com
 
 import sys
 import zlib
@@ -8,13 +8,13 @@ import requests
 import pandas as pd
 
 def whatweb(url):
-    response = requests.get(url,verify=False)
+    response = requests.get(url,verify=False,timeout=1)
     whatweb_dict = {"url":response.url,"text":response.text,"headers":dict(response.headers)}
     whatweb_dict = json.dumps(whatweb_dict)
     whatweb_dict = whatweb_dict.encode()
     whatweb_dict = zlib.compress(whatweb_dict)
     data = {"info":whatweb_dict}
-    return requests.post("http://whatweb.bugscaner.com/api.go",files=data)
+    return requests.post("http://whatweb.bugscaner.com/api.go",files=data,timeout=1)
     
 def results(url):
     result = {}
@@ -35,11 +35,11 @@ if __name__ == '__main__':
     for url in f.read().split():
         try:
             pools.append(results(url))
-        except requests.exceptions.ConnectionError:
-            print('连接超时，正在识别下一个URL')
+        except (requests.exceptions.ConnectionError,requests.exceptions.ReadTimeout):
+            print('连接异常，正在识别下一个URL……')
             pass
         except BaseException as e:
-            print('程序发生'+str(e)+'异常','正在保存退出')
+            print('程序发生'+str(e)+'异常','正在保存退出……')
             os._exit()
         finally:
             df = pd.DataFrame(pools)

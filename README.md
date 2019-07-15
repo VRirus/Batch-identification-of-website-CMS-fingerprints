@@ -2,6 +2,7 @@
 * 使用Python3开发
 * 结果导出为Output_Result.csv文件
 * 使用在线平台（[http://whatweb.bugscaner.com](http://whatweb.bugscaner.com)）进行指纹识别
+
 # 0x02 使用方法
 ```
 pip3 install -r requirements.txt

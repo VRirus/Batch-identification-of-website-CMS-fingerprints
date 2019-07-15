@@ -35,8 +35,12 @@ if __name__ == '__main__':
     for url in f.read().split():
         try:
             pools.append(results(url))
-        except:
+        except requests.exceptions.ConnectionError:
+            print('连接超时，正在识别下一个URL')
             pass
-        continue
-    df = pd.DataFrame(pools)
-    df.to_csv(r'Output_Result.csv',encoding='GB2312')
+        except BaseException as e:
+            print('程序发生'+str(e)+'异常','正在保存退出')
+            os._exit()
+        finally:
+            df = pd.DataFrame(pools)
+            df.to_csv(r'Output_Result.csv',encoding='GB2312')

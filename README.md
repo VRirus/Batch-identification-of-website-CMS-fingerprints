@@ -9,7 +9,7 @@
 git clone https://github.com/teamssix/Batch-identification-of-website-CMS-fingerprints.git
 cd Batch-identification-of-website-CMS-fingerprints
 pip3 install -r requirements.txt
-python3 Batch_CMS_identification.py url.txt filename
+python3 Batch_CMS_identification.py url.txt output_filename
 python3 DB_Batch_CMS_identification.py db_name
 ```
 

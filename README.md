@@ -21,4 +21,5 @@ python3 Batch_CMS_identification.py url.txt filename
 * 程序中途想要退出，可以直接Ctrl+C退出，等待一段时间后便会退出，结果会保存
 * 如果程序经常提示连接异常，可能因为对方拒绝连接或者本地网速较慢，如果本地网速延时较高，可将程序中的两处timeout调高一些，为保证速度，默认timeout为1秒。
 * 该平台每天有1500的使用限制。
+
 ![](https://teamssix.oss-cn-hangzhou.aliyuncs.com/TeamsSix_Subscription_Logo2.png)

@@ -38,10 +38,10 @@ if __name__ == '__main__':
         print('''\033[1;31;40m
 请检查你的参数是否有误
 
-示例：python3 Batch_CMS_identification.py url.txt filename
+示例：python3 Batch_CMS_identification.py url.txt output_filename
         \033[0m''')
         sys.exit()
-    print('\n\033[1;33;40m示例：python3 Batch_CMS_identification.py url.txt filename\033[0m')
+    print('\n\033[1;33;40m示例：python3 Batch_CMS_identification.py url.txt output_filename\033[0m')
     
     for url in f.read().split():
         try:

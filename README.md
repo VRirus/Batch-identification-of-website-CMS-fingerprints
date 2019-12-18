@@ -26,7 +26,7 @@ python3 DB_Batch_CMS_identification.py db_name
 * 如果执行过程中出现警告，一般是碰到有些网站使用的https的情况，可以不用理会，对结果没有影响。
 * 如果想重新运行程序，请确认导出的CSV文件没有被打开，否则将因为不能导出文件而报错
 * 程序中途想要退出，可以直接Ctrl+C退出，等待一段时间后便会退出，结果会保存
-* 如果程序经常提示连接异常，可能因为对方拒绝连接或者本地网速较慢，如果本地网速延时较高，可将程序中的两处timeout调高一些，为保证速度，默认timeout为1秒。
+* 如果程序经常提示连接异常，可能因为对方拒绝连接或者本地网络较差，如果本地网速延时较高，可将程序中的两处timeout调高一些，为保证速度，默认timeout为1秒。
 * 该平台每天有1500的使用限制。
 
 ![](https://teamssix.oss-cn-hangzhou.aliyuncs.com/TeamsSix_Subscription_Logo2.png)

@@ -34,12 +34,12 @@ python3 DB_Batch_CMS_identification.py db_name
 
 * 如果程序出现```UnicodeEncodeError: gb2312 codec cant encode character \xb7 in position 52: illegal multibyte sequence```异常，需要修改results()子函数代码，比如这里提示 '\xb7' 编码存在问题，就需要将原来代码修改成下面的样子
 ```
-	for i in req_json:
-		i = i.replace('\xb7',' ') #原这行没有
-		sub_i = req_json[i][0]
-		result[i] = sub_i
-	result['URL'] = url.replace('\xb7',' ') 原result['URL'] = url
-	result['title'] = title.replace('\xb7',' ') 原result['title'] = title
+for i in req_json:
+	i = i.replace('\xb7',' ') #原这行没有
+	sub_i = req_json[i][0]
+	result[i] = sub_i
+result['URL'] = url.replace('\xb7',' ') 原result['URL'] = url
+result['title'] = title.replace('\xb7',' ') 原result['title'] = title
 ```
 也即是是修改上面存在注释的三行代码，其实这里就是把报错的 '\xb7' 给替换掉，如果程序继续报这个错，就继续在上一步修改的基础上添加replace，比如修改成```result['URL'] = url.replace('\xb7',' ').replace('\u2013',' ')```
 

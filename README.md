@@ -30,8 +30,6 @@ python3 DB_Batch_CMS_identification.py db_name
 
 * 程序中途想要退出，可以直接Ctrl+C退出，等待一段时间后便会退出，结果会保存
 
-* 如果程序经常提示连接异常，可能因为对方拒绝连接或者本地网络较差，如果本地网速延时较高，可将程序中的两处timeout调高一些，为保证速度，默认timeout为1秒。
-
 * 该平台每天有1500的使用限制。
 
 * 如果程序出现```UnicodeEncodeError: gb2312 codec cant encode character \xb7 in position 52: illegal multibyte sequence```异常，需要修改results()子函数代码，比如这里提示 '\xb7' 编码存在问题，就需要将原来代码修改成下面的样子

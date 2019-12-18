@@ -1,7 +1,6 @@
 #! /usr/bin/env python
 # by www.teamssix.com
 
-import io
 import sys
 import zlib
 import json

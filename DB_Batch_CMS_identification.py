@@ -10,13 +10,13 @@ import pandas as pd
 
 
 def whatweb(url):
-	response = requests.get(url, headers=headers, verify=False, allow_redirects=False,timeout=1)  # 如果本地网络环境延时较高，timeout可设置高一些，默认为1s
+	response = requests.get(url, headers=headers, verify=False, allow_redirects=False)
 	whatweb_dict = {"url": response.url, "text": response.text, "headers": dict(response.headers)}
 	whatweb_dict = json.dumps(whatweb_dict)
 	whatweb_dict = whatweb_dict.encode()
 	whatweb_dict = zlib.compress(whatweb_dict)
 	data = {"info": whatweb_dict}
-	return requests.post("http://whatweb.bugscaner.com/api.go", headers=headers, allow_redirects=False, files=data,timeout=1)  # 如果本地网络环境延时较高，timeout可设置高一些，默认为1s
+	return requests.post("http://whatweb.bugscaner.com/api.go", headers=headers, allow_redirects=False, files=data)
 
 
 def results(url, title):

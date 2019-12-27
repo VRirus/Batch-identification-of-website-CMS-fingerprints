@@ -51,10 +51,10 @@ if __name__ == '__main__':
 			try:
 				pools.append(results(url))
 			except (requests.exceptions.ConnectionError, requests.exceptions.ReadTimeout):
-				print('\033[1;31;40m[-] 连接异常，正在识别下一个URL……\n\033[0m')
+				print('\033[1;31;40m\n[-] {} 连接异常，正在识别下一个URL……\033[0m'.format(url))
 				pass
 			except BaseException as e:
-				print('\033[1;31;40m[-] 程序发生' + str(e) + '异常，正在识别下一个URL……\n','\033[0m')
+				print('\033[1;31;40m\n[-] {} 程序发生'.format(url) + str(e) + '异常，正在识别下一个URL……','\033[0m')
 				pass
 			finally:
 				df = pd.DataFrame(pools)

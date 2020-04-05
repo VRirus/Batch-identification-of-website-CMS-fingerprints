@@ -1,4 +1,5 @@
 # 0x01 概述
+* 一个批量识别网站 CMS 的工具
 * 使用Python3开发
 * 结果导出为csv文件
 * 使用在线平台（[http://whatweb.bugscaner.com](http://whatweb.bugscaner.com)）进行指纹识别
@@ -22,9 +23,7 @@ python3 DB_Batch_CMS_identification.py db_name
 ![](https://teamssix.oss-cn-hangzhou.aliyuncs.com/Batch_CMS_identification3.png)
 
 # 0x03 注意事项
-* url.txt文件中地址格式不能有```http://```或```https://```，正确的url.txt示例：```teamssix.com```或```www.teamssix.com```都是可以的。
-
-* 如果执行过程中出现警告，一般是碰到有些网站使用的https的情况，可以不用理会，对结果没有影响。
+* url.txt示例：```http://www.teamssix.com```、```https://www.teamssix.com```或```www.teamssix.com```都是可以的。
 
 * 如果想重新运行程序，请确认导出的CSV文件没有被打开，否则将因为不能导出文件而报错
 
@@ -44,5 +43,10 @@ result['title'] = title.replace('\xb7',' ') 原result['title'] = title
 也即是是修改上面存在注释的三行代码，其实这里就是把报错的 '\xb7' 给替换掉，如果程序继续报这个错，就继续在上一步修改的基础上添加replace，比如修改成```result['URL'] = url.replace('\xb7',' ').replace('\u2013',' ')```
 
 * 因为有时程序可能会中途发生异常退出，所以如果想从url列表的某一行开始，可以在主函数的```for numbers in range(len(url_list)): ```下添加一个判断，比如```if numbers > 589:```，之后程序就会从 url列表的第590行开始。
+
+# 0x04 更新
+# 2020.4.5 更新
+* 对url.txt文件里的url格式不再限制，可以自动添加没有http或https的url
+* 关闭了访问https网站时的告警提示信息
 
 ![](https://teamssix.oss-cn-hangzhou.aliyuncs.com/TeamsSix_Subscription_Logo2.png)

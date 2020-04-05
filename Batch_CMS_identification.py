@@ -1,11 +1,12 @@
 #! /usr/bin/env python
 # by www.teamssix.com
+import urllib3
 import sys
 import zlib
 import json
 import requests
 import pandas as pd
-
+urllib3.disable_warnings()
 
 def whatweb(url):
 	response = requests.get(url='{}'.format(url), headers=headers, verify=False, allow_redirects=False,timeout=5)
@@ -48,16 +49,23 @@ if __name__ == '__main__':
 	f = f.read().split('\n')
 	if f != []:
 		for url in f:
-			try:
-				pools.append(results(url))
-			except (requests.exceptions.ConnectionError, requests.exceptions.ReadTimeout):
-				print('\033[1;31;40m\n[-] {} 连接异常，正在识别下一个URL……\033[0m'.format(url))
-				pass
-			except BaseException as e:
-				print('\033[1;31;40m\n[-] {} 程序发生'.format(url) + str(e) + '异常，正在识别下一个URL……','\033[0m')
-				pass
-			finally:
-				df = pd.DataFrame(pools)
-				df.to_csv(r'{}'.format(file_name), encoding='GB2312')
+			if '.' in url:
+				try:
+					if 'http' in url:
+						pools.append(results(url))
+					else:
+						url1 = 'http://'+ url
+						pools.append(results(url1))
+						url2 = 'https://'+url
+						pools.append(results(url2))
+				except (requests.exceptions.ConnectionError, requests.exceptions.ReadTimeout):
+					print('\033[1;31;40m\n[-] {} 连接异常，正在识别下一个URL……\033[0m'.format(url))
+					pass
+				except BaseException as e:
+					print('\033[1;31;40m\n[-] {} 程序发生'.format(url) + str(e) + '异常，正在识别下一个URL……','\033[0m')
+					pass
+				finally:
+					df = pd.DataFrame(pools)
+					df.to_csv(r'{}'.format(file_name), encoding='GB2312')
 	else:
 		print('未读取到url文件，正在退出……')
